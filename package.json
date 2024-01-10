@@ -1,0 +1,32 @@
+{
+  "name": "uniapp-inject-loader",
+  "version": "1.0.0",
+  "description": "用于uniapp打包时插入代码片段的loader",
+  "author": "liusheng",
+  "license": "ISC",
+  "homepage": "https://github.com/liusheng22/uniapp-inject-loader",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liusheng22/uniapp-inject-loader"
+  },
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.23.6",
+    "@babel/parser": "^7.23.6",
+    "@babel/traverse": "^7.23.7",
+    "@babel/types": "^7.23.6",
+    "@dcloudio/vue-cli-plugin-uni": "2.0.2-3090620231104001",
+    "@vue/compiler-sfc": "^3.3.11",
+    "deepmerge": "^4.3.1",
+    "strip-json-comments": "^2.0.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "devDependencies": {
+    "@sujian/eslint-config": "^1.0.4",
+    "eslint": "^8.54.0"
+  }
+}

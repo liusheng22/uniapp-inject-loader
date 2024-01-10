@@ -1,0 +1,8 @@
+.vscode
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.gitlab-ci.yml
+.npmrc
+pnpm-lock.yaml

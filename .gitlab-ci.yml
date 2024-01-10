@@ -1,0 +1,16 @@
+variables:
+  NODEJS_IMAGE: ${DOCKER_REGISTRY}/env/nodejs:v14_pnpm # 容器基础镜像
+
+include:
+  - project: platform/ci-templates
+    ref: master
+    file: "/npm-privatization/build.yml"
+
+publish:prod:
+  stage: publish
+  image: ${NODEJS_IMAGE}
+  script:
+    - pnpm i
+    - pnpm -r publish --no-git-checks --access public
+  only:
+    - tags

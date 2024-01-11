@@ -43,12 +43,14 @@ module.exports = function (content) {
     // 插入代码
     if (isPageHasInjectCode) {
       for (const module of injectCode) {
-        // TODO MOCK
         // 获取公共组件路径
+        const projectRoot = path.resolve(__dirname, '../../../')
+
         const modulePath = path.resolve(
-          __dirname,
+          projectRoot,
           `src/components/${module}/${module}.vue`
         )
+
         const injectContent = fs.readFileSync(modulePath, 'utf8')
         // 解析sfc - 最终插入到页面的代码
         const injectCompiler = parseComponent(injectContent)

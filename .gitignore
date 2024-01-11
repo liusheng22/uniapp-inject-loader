@@ -28,3 +28,6 @@ dist-ssr
 # env files
 .env.local
 .env.*.local
+
+# specific files
+/src

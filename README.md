@@ -6,7 +6,7 @@
 
 ### 安装
 ```bash
-npm i uniapp-inject-loader -D
+npm i @llius/uniapp-inject-loader -D
 ```
 
 ### `vue.config.js` 注入loader
@@ -20,7 +20,7 @@ module.exports = {
         {
           test: /\.vue$/,
           use: {
-            loader: path.resolve(__dirname, '../node_modules/uniapp-inject-loader/src/index.js'),
+            loader: path.resolve(__dirname, '../node_modules/@llius/uniapp-inject-loader/src/index.js'),
             options: {
               // 根据自己项目需要启用配置的平台进行填写，比如 ['app-plus','mp-weixin']
               VUE_APP_PLATFORMS: ['app-plus']
@@ -48,11 +48,6 @@ options: {
 ```json
 /* pages.json file */
 "injectLoader": {
-  "config": {
-    "componentName": "<custom-global-component></custom-global-component>",
-  },
-  // 全局配置
-  "label": ["componentName"],
   /* 同一全局组件 injectLabel or injectCode 二选一 */
   "injectLabel": ["custom-global-component"], // 以标签的形式插入代码
   "injectCode": ["custom-global-component"], // 以代码的形式插入代码
@@ -64,7 +59,8 @@ options: {
     "style": {
       "navigationBarTitleText": "测试页面",
       // 单独配置，用法跟全局配置一致，优先级高于全局
-      "label": ["componentName"],
+      "injectCode": ["custom-global-component"], // 注入代码
+      "injectLabel": ["custom-global-component"], // 注入标签
       "rootEle":"div"
     }
   }
@@ -72,15 +68,14 @@ options: {
 ```
 
 ###  配置说明
-
-- `config` (default: `{}`)
-  定义标签名称和内容的键值对
-- `label`(default: `[]`)
-  需要全局引入的标签，打包后会在所有页面引入此标签
-- `rootEle`(default: `"div"`)
+- `injectCode`(default: `[]`)
+  需要全局引入的代码，打包后会在所有页面注入该组件的所有代码
+- `injectLabel`(default: `[]`)
+  需要全局引入的标签，打包后会在所有页面引入以此命子为名的html标签
+- `rootEle`(default: `"view"`)
   根元素的标签类型，缺省值为div，支持正则，比如匹配任意标签 ".*"
 
-✔ `label` 和 `rootEle` 支持在单独页面的style里配置，优先级高于全局配置
+✔ `injectCode`、`injectLabel`、`rootEle` 支持在单独页面的style里配置，优先级高于全局配置
 
 
 ### 两种注入方式的区别

@@ -1,7 +1,7 @@
 {
-  "name": "uniapp-inject-loader",
-  "version": "1.0.0",
-  "description": "用于uniapp打包时插入代码片段的loader",
+  "name": "@llius/uniapp-inject-loader",
+  "version": "0.0.4",
+  "description": "一个uniapp在通过webpack打包APP/小程序时注入全局组件的loader",
   "author": "liusheng",
   "license": "ISC",
   "homepage": "https://github.com/liusheng22/uniapp-inject-loader",
@@ -9,6 +9,17 @@
     "type": "git",
     "url": "https://github.com/liusheng22/uniapp-inject-loader"
   },
+  "keywords": [
+    "webpack",
+    "uniapp",
+    "inject",
+    "loader",
+    "uniapp-inject-loader",
+    "uniapp-inject",
+    "uniapp-loader",
+    "全局组件",
+    "easycom"
+  ],
   "main": "index.js",
   "publishConfig": {
     "access": "public",
